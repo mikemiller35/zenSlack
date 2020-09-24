@@ -7,7 +7,7 @@ plugins:
 
 custom:
     pyIndividually:
-      wrap:notify: shorty-pull/handler.slack-notify
+      wrap:notify: slack-notify/handler.slack-notify
 
 provider:
     name: aws
