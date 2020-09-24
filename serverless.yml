@@ -14,6 +14,9 @@ provider:
     runtime: python3.7
     stage: dev
     region: us-west-2
+    stackTags:
+        billingproject: ${self:service}
+    logRetentionInDays: 7
     package:
         individually: True
         exclude:
