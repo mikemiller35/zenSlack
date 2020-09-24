@@ -1,0 +1,33 @@
+# serverless.yml
+
+service: zendesk-2-slack
+
+plugins:
+    - serverless-python-individually
+
+custom:
+    pyIndividually:
+      wrap:notify: shorty-pull/handler.slack-notify
+
+provider:
+    name: aws
+    runtime: python3.7
+    stage: dev
+    region: us-west-2
+    package:
+        individually: True
+        exclude:
+          - '**/*'
+
+functions:
+    notify:
+        handler: slack-notify/handler.lambda_handler
+        memorySize: 128
+        package:
+            include:
+                - slack-notify/**
+        events:
+            - http: 
+                method: get
+                path: event/zendesk
+                cors: True
