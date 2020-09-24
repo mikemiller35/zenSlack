@@ -17,10 +17,11 @@ provider:
     stackTags:
         billingproject: ${self:service}
     logRetentionInDays: 7
-    package:
-        individually: True
-        exclude:
-          - '**/*'
+
+package:
+    individually: True
+    exclude:
+        - '**/*'
 
 functions:
     notify:
