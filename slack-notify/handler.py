@@ -1,6 +1,5 @@
 import os
 import json
-import unzip_requirements
 import requests
 
 
