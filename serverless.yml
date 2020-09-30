@@ -3,11 +3,15 @@
 service: zendesk-2-slack
 
 plugins:
-    - serverless-python-individually
+  - serverless-python-individually
+  - serverless-python-requirements
 
 custom:
     pyIndividually:
       wrap:notify: slack-notify/handler.slack-notify
+    pythonRequirements:
+      dockerizePip: non-linux  
+      zip: true 
 
 provider:
     name: aws
@@ -34,6 +38,6 @@ functions:
                 - slack-notify/**
         events:
             - http: 
-                method: get
+                method: post
                 path: event/zendesk
                 cors: True
