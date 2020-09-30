@@ -17,6 +17,8 @@ provider:
     stackTags:
         billingproject: ${self:service}
     logRetentionInDays: 7
+    environment:
+        SLACKHOOK: ${opt:slackhook}
 
 package:
     individually: True
