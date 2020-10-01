@@ -12,7 +12,7 @@ def lambda_handler(event, context):
     ticket_url = json.loads(event.get("body")).get("ticket_url")
 
     # Craft the message to send
-    message = ":alert: A ticket came from {} ({}), the ticket is {}".format(
+    message = ":point_right: A ticket came from {} ({}), the ticket is {}".format(
         submit_user, submit_user_email, ticket_url
     )
     # Send our payload to Slack
